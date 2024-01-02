@@ -1,3 +1,6 @@
+# NAME: RAMYA.P
+# REFERENCE NO:
+
 # Exp-6-Synchornous-counters - up counter and down counter 
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
@@ -34,6 +37,31 @@ The Q outputs of each flip-flop will serve as the respective binary bits of the 
 Four-bit “Up” Counter
 ![image](https://user-images.githubusercontent.com/36288975/169644758-b2f4339d-9532-40c5-af40-8f4f8c942e2c.png)
 
+# PROGRAM:
+     module up_counter(clk,q1,q2,q3);
+     input clk;
+     output reg q1,q2,q3;
+    always@(posedge clk)
+    begin
+    q3=(q1&q2)^q3;
+    q2=q1^q2;
+    q1=1^q1;
+    end 
+    endmodule
+
+# RTL LOGIC FOR UP COUNTER:
+
+![293361869-a03a9147-4071-4d8c-b1bb-c94baaacfe25](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/271824e3-07c9-4072-ae00-8f4dd8ee708c)
+
+
+# TRUTH TABLE:
+![293361897-0fad4afb-aff2-4a62-8494-e081757ba1ca](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/9aa8ec9d-c44d-4ded-875e-145d5ad17e3b)
+
+# TIMING DIAGRAM FOR UP COUNTER:
+
+![293361908-1fa2cb7e-3c27-4c4e-a7be-71bfbca01bb6](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/ec707b53-bf95-4532-827d-39efa776ffa8)
+
+
 
 
 ## DOWN COUNTER 
@@ -43,46 +71,46 @@ As well as counting “up” from zero and increasing or incrementing to some pr
 This type of counter is normally referred to as a Down Counter, (CTD). In a binary or BCD down counter, the count decreases by one for each external clock pulse from some preset value. Special dual purpose IC’s such as the TTL 74LS193 or CMOS CD4510 are 4-bit binary Up or Down counters which have an additional input pin to select either the up or down count mode.
 ![image](https://user-images.githubusercontent.com/36288975/169644844-1a14e123-7228-4ed8-81a9-eb937dff4ac8.png)
 
+# PROGRAM:
 
-4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
-
-
-
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
+     module COUNTER(clk,q1,q2,q3);
+     input clk;
+     output reg q1,q2,q3;
+     always@(posedge clk)
+     begin
+    q3=((~q2)&(~q1))^q3;
+    q2=(~q1)^q2;
+    q1=1^q1;
+    end
+    endmodule
 
 
 
+# RTL LOGIC DOWN COUNTER:
 
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
-
+![293361964-aea0bb57-ab87-4549-9720-c26f35609f2d](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/6ef717c0-f9b3-4d01-b624-2c4eb498b1dd)
 
 
 
 
 
 
-
-### TIMING DIGRAMS FOR COUNTER  
-
+### TIMING DIGRAMS FOR COUNTER  :
 
 
-
-
-### TRUTH TABLE 
+![293361994-169f6ffa-5e86-4212-9451-25c5981e77b0](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/7dd791ed-6822-44e7-a66a-135de915bce1)
 
 
 
+### TRUTH TABLE :
+
+
+![293361980-e6ff8e0f-9248-4fa0-b05f-cbe39e102dcf](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/da231c4d-fcb7-44c2-8bc0-298da336b451)
 
 
 
-### RESULTS 
+
+### RESULTS :
+Thus synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
