@@ -35,16 +35,16 @@ The Q outputs of each flip-flop will serve as the respective binary bits of the 
  
 
 # PROGRAM:
-module up_counter(clk,q1,q2,q3);
-input clk;
-output reg q1,q2,q3;
-always@(posedge clk)
-begin
-q3=(q1&q2)^q3;
-q2=q1^q2;
-q1=1^q1;
-end 
-endmodule
+                        module up_counter(clk,q1,q2,q3);
+                        input clk;
+                        output reg q1,q2,q3;
+                        always@(posedge clk)
+                        begin
+                        q3=(q1&q2)^q3;
+                        q2=q1^q2;
+                       q1=1^q1;
+                       end 
+                       endmodule
 
 # RTL :
 
@@ -69,16 +69,16 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 ### PROGRAM :
-module COUNTER(clk,q1,q2,q3);
-input clk;
-output reg q1,q2,q3;
-always@(posedge clk)
-begin
-q3=((~q2)&(~q1))^q3;
-q2=(~q1)^q2;
-q1=1^q1;
-end
-endmodule
+                module COUNTER(clk,q1,q2,q3);
+                input clk;
+                 output reg q1,q2,q3;
+                 always@(posedge clk)
+                 begin
+                 q3=((~q2)&(~q1))^q3;
+                 q2=(~q1)^q2;
+                 q1=1^q1;
+                 end
+                 endmodule
 
 # RTL:
 
