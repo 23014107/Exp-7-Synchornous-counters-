@@ -1,3 +1,7 @@
+# NAME:RAMYA.P
+# REFERENCE NO:
+
+
 # Exp-6-Synchornous-counters - up counter and down counter 
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
@@ -18,22 +22,35 @@ Examine the following binary count sequence, paying attention to patterns preced
 Binary count sequence, paying attention to patterns preceding the “toggling” of a bit between 0 and 1.
 
 Note that each bit in this four-bit sequence toggles when the bit before it (the bit having a lesser significance, or place-weight), toggles in a particular direction: from 1 to 0.
-
-
-
- 
- 
-
 Starting with four J-K flip-flops connected in such a way to always be in the “toggle” mode, we need to determine how to connect the clock inputs in such a way so that each succeeding bit toggles when the bit before it transitions from 1 to 0.
 
 The Q outputs of each flip-flop will serve as the respective binary bits of the final, four-bit count:
 
- 
- 
 
-Four-bit “Up” Counter
-![image](https://user-images.githubusercontent.com/36288975/169644758-b2f4339d-9532-40c5-af40-8f4f8c942e2c.png)
+ 
+# PROGRAM:
+            module up_counter(clk,q1,q2,q3);
+            input clk;
+            output reg q1,q2,q3;
+           always@(posedge clk)
+           begin
+           q3=(q1&q2)^q3;
+          q2=q1^q2;
+          q1=1^q1;
+          end 
+          endmodule
 
+# RTL LOGIC FOR UP COUNTER:
+
+![293361869-a03a9147-4071-4d8c-b1bb-c94baaacfe25](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/25d351cd-319b-4d7c-a522-d8818aa1d29a)
+
+# TRUTH TABLE:
+![293361897-0fad4afb-aff2-4a62-8494-e081757ba1ca](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/2b60c273-bd0a-4c11-9219-48464cbbd073)
+
+# TIMING DIAGRAM FOR UP COUNTER:
+
+
+![293361908-1fa2cb7e-3c27-4c4e-a7be-71bfbca01bb6](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/badead58-f94d-425e-bfe0-49c197527e5b)
 
 
 ## DOWN COUNTER 
@@ -41,38 +58,44 @@ Four-bit “Up” Counter
 As well as counting “up” from zero and increasing or incrementing to some preset value, it is sometimes necessary to count “down” from a predetermined value to zero allowing us to produce an output that activates when the zero count or some other pre-set value is reached.
 
 This type of counter is normally referred to as a Down Counter, (CTD). In a binary or BCD down counter, the count decreases by one for each external clock pulse from some preset value. Special dual purpose IC’s such as the TTL 74LS193 or CMOS CD4510 are 4-bit binary Up or Down counters which have an additional input pin to select either the up or down count mode.
-![image](https://user-images.githubusercontent.com/36288975/169644844-1a14e123-7228-4ed8-81a9-eb937dff4ac8.png)
-
-
-4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
 
 
 
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
-
-
-
-
-
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+### PROGRAM :
+      module COUNTER(clk,q1,q2,q3);
+      input clk;
+      output reg q1,q2,q3;
+     always@(posedge clk)
+     begin
+     q3=((~q2)&(~q1))^q3;
+    q2=(~q1)^q2;
+    q1=1^q1;
+    end
+    endmodule
 
 
 
 
 
 
+### RTL LOGIC UP COUNTER AND DOWN COUNTER  :
+
+
+![293361964-aea0bb57-ab87-4549-9720-c26f35609f2d](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/0efa50c8-066a-4a2d-b0d0-90ba57b03719)
+
+
+# TRUTH TABLE
+
+![293361980-e6ff8e0f-9248-4fa0-b05f-cbe39e102dcf](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/54ea0dee-0720-4b8c-8313-1981e6737c37)
 
 
 
-### TIMING DIGRAMS FOR COUNTER  
+### TIMING DIGRAMS FOR COUNTER  :
+
+![293361994-169f6ffa-5e86-4212-9451-25c5981e77b0](https://github.com/vasanthkumarch/Exp-7-Synchornous-counters-/assets/151625620/ac1645e1-bc14-4667-9f40-c5b61f774e09)
+
+# RESULT:
+Thus synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
 
 
 
